@@ -12,6 +12,7 @@ namespace DemoHints
         public const string RoslynDemoCategory = "DotNetNotts";
         public static string RDAnalyzerInherit = RoslynDemoCategory + "0001";
         public static string RDAnalyzerAttribute = RoslynDemoCategory + "0002";
+        public static string RDAnalyzerDescriptor = RoslynDemoCategory + "0003";
         //CreateDescriptor
         //return SupportedDiagnostics
         public override void Initialize(AnalysisContext context)
@@ -37,15 +38,21 @@ namespace DemoHints
                 return;
             }
 
-            if (!node.GetAttributes().Any(ad => ad.AttributeClass.Name == "DiagnosticAnalyzer"))
+            if (!node.GetAttributes().Any(ad => ad.AttributeClass.Name == "DiagnosticAnalyzerAttribute"))
             {
                 obj.ReportDiagnostic(Diagnostic.Create(AttributeUsageIssue, obj.Symbol.Locations.FirstOrDefault(), obj.Symbol.Name));
+                return;
+            }
+
+            if (!node.MemberNames.Contains("_descriptor"))
+            {
+                obj.ReportDiagnostic(Diagnostic.Create(DescriptorIssue, obj.Symbol.Locations.FirstOrDefault(),obj.Symbol.Name));
             }
         }
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => _descriptors;
 
-        private static ImmutableArray<DiagnosticDescriptor> _descriptors => ImmutableArray.Create(InheritIssue, AttributeUsageIssue);
+        private static ImmutableArray<DiagnosticDescriptor> _descriptors => ImmutableArray.Create(InheritIssue, AttributeUsageIssue, DescriptorIssue);
 
         private static DiagnosticDescriptor InheritIssue = new(RDAnalyzerInherit,
             HintResources.RDAnalyzerInheritTitle,
@@ -56,6 +63,12 @@ namespace DemoHints
         private static DiagnosticDescriptor AttributeUsageIssue = new(RDAnalyzerAttribute,
             HintResources.RDAnalyzerAttributeTitle,
             HintResources.RDAnalyzerAttributeMessageFormat,
+            RoslynDemoCategory, DiagnosticSeverity.Info,
+            true);
+
+        private static DiagnosticDescriptor DescriptorIssue = new(RDAnalyzerDescriptor,
+            HintResources.RDAnalyzerDescriptorTitle,
+            HintResources.RDAnalyzerDescriptorMessageFormat,
             RoslynDemoCategory, DiagnosticSeverity.Info,
             true);
     }

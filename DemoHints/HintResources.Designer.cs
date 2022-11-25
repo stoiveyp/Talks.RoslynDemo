@@ -79,6 +79,24 @@ namespace DemoHints {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} does not have a Descriptor with name _descriptor.
+        /// </summary>
+        internal static string RDAnalyzerDescriptorMessageFormat {
+            get {
+                return ResourceManager.GetString("RDAnalyzerDescriptorMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Analyzer does not have a Descriptor set up.
+        /// </summary>
+        internal static string RDAnalyzerDescriptorTitle {
+            get {
+                return ResourceManager.GetString("RDAnalyzerDescriptorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Analyzer must inherit from DiagnosticAnalyzer.
         /// </summary>
         internal static string RDAnalyzerInheritDescription {
