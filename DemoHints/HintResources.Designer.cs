@@ -122,5 +122,23 @@ namespace DemoHints {
                 return ResourceManager.GetString("RDAnalyzerInheritTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} is not correctly initialized.
+        /// </summary>
+        internal static string RDAnalyzerInitializeMessageFormat {
+            get {
+                return ResourceManager.GetString("RDAnalyzerInitializeMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Correctly Initialize the analyzer.
+        /// </summary>
+        internal static string RDAnalyzerInitializeTitle {
+            get {
+                return ResourceManager.GetString("RDAnalyzerInitializeTitle", resourceCulture);
+            }
+        }
     }
 }

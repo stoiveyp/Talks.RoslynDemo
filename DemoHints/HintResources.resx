@@ -138,4 +138,10 @@
   <data name="RDAnalyzerInheritTitle" xml:space="preserve">
     <value>Analyzer not inheriting from correct class</value>
   </data>
+  <data name="RDAnalyzerInitializeMessageFormat" xml:space="preserve">
+    <value>{0} is not correctly initialized</value>
+  </data>
+  <data name="RDAnalyzerInitializeTitle" xml:space="preserve">
+    <value>Correctly Initialize the analyzer</value>
+  </data>
 </root>

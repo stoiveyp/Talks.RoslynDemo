@@ -59,5 +59,23 @@ namespace ExampleRoslynDemos {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} is not an appropriate description of the group you&apos;re saying hello to.
+        /// </summary>
+        internal static string IncorrectNamingMessageFormat {
+            get {
+                return ResourceManager.GetString("IncorrectNamingMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect greeting.
+        /// </summary>
+        internal static string IncorrectNamingTitle {
+            get {
+                return ResourceManager.GetString("IncorrectNamingTitle", resourceCulture);
+            }
+        }
     }
 }
